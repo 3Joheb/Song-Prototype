@@ -8,7 +8,6 @@ package musicapp;
  *
  * @author zoheb
  */
-
 import java.awt.Color;
 
 public class musicappGUI extends javax.swing.JFrame {
@@ -103,6 +102,11 @@ public class musicappGUI extends javax.swing.JFrame {
         delBtn.setText("Delete Song");
 
         moveBtn.setText("Move Song");
+        moveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moveBtnActionPerformed(evt);
+            }
+        });
 
         showSongBtn.setText("Show Songs");
         showSongBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -229,10 +233,10 @@ public class musicappGUI extends javax.swing.JFrame {
         String artistName = artistTF.getText();
         String duration = durTF.getText();
         String genre = "";
-        
-        if(hipBox.isSelected()){
+
+        if (hipBox.isSelected()) {
             genre = "Hip Hop";
-        } else if(edmBox.isSelected()){
+        } else if (edmBox.isSelected()) {
             genre = "EDM";
         }
 
@@ -268,6 +272,29 @@ public class musicappGUI extends javax.swing.JFrame {
         // If hip hop box is clicked, unclick other box
         edmBox.setSelected(false);
     }//GEN-LAST:event_hipBoxActionPerformed
+
+    private void moveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moveBtnActionPerformed
+        // TODO add your handling code here:
+        // Check if the liked playlist is empty
+        if (!likedSongsPlaylist.isEmpty()) {
+            // Pop the last song from the liked playlist
+            Song songToMove = likedSongsPlaylist.pop();
+
+            // Check the genre of the song
+            String genre = songToMove.getGenre();
+
+            // Determine which playlist to push the song onto based on its genre
+            if (genre.equals("Hip Hop")) {
+                hipHopPlaylist.push(songToMove);
+                likedTP.setText("");
+                hipTP.setText("Moved" + songToMove.getName());
+            } else if (genre.equals("EDM")) {
+                edmPlaylist.push(songToMove);
+                likedTP.setText("");
+                edmTP.setText("Moved" + songToMove.getName());
+            }
+        }
+    }//GEN-LAST:event_moveBtnActionPerformed
 
     /**
      * @param args the command line arguments
