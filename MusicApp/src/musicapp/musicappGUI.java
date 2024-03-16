@@ -44,7 +44,6 @@ public class musicappGUI extends javax.swing.JFrame {
         artistTF = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        genreTF = new javax.swing.JTextField();
         durTF = new javax.swing.JTextField();
         errLbl = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -60,6 +59,8 @@ public class musicappGUI extends javax.swing.JFrame {
         delBtn = new javax.swing.JButton();
         moveBtn = new javax.swing.JButton();
         showSongBtn = new javax.swing.JButton();
+        hipBox = new javax.swing.JCheckBox();
+        edmBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,12 +71,6 @@ public class musicappGUI extends javax.swing.JFrame {
         jLabel3.setText("Duration (secs):");
 
         jLabel4.setText("Genre:");
-
-        genreTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                genreTFActionPerformed(evt);
-            }
-        });
 
         durTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -116,6 +111,20 @@ public class musicappGUI extends javax.swing.JFrame {
             }
         });
 
+        hipBox.setText("Hip Hop");
+        hipBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hipBoxActionPerformed(evt);
+            }
+        });
+
+        edmBox.setText("EDM");
+        edmBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edmBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,25 +134,27 @@ public class musicappGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(errLbl)
+                            .addComponent(artistNameLbl)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3)
+                            .addComponent(songLbl)
+                            .addComponent(errLbl))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(artistNameLbl)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(songLbl))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(artistTF)
-                                    .addComponent(durTF)
-                                    .addComponent(genreTF)
-                                    .addComponent(songTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(artistTF)
+                                        .addComponent(durTF)
+                                        .addComponent(songTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(hipBox))
                                 .addGap(60, 60, 60)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(delBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(addBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(moveBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(showSongBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(showSongBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(edmBox)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +188,19 @@ public class musicappGUI extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(durTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(moveBtn))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(genreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(showSongBtn))
-                .addGap(18, 18, 18)
-                .addComponent(errLbl)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(showSongBtn)
+                            .addComponent(hipBox))
+                        .addGap(5, 5, 5)
+                        .addComponent(edmBox))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel4)
+                        .addGap(10, 10, 10)
+                        .addComponent(errLbl)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -205,17 +222,19 @@ public class musicappGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_durTFActionPerformed
 
-    private void genreTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genreTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_genreTFActionPerformed
-
     private void addBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBtnActionPerformed
         // TODO add your handling code here:
         // Get the text from the text fields
         String songName = songTF.getText();
         String artistName = artistTF.getText();
         String duration = durTF.getText();
-        String genre = genreTF.getText();
+        String genre = "";
+        
+        if(hipBox.isSelected()){
+            genre = "Hip Hop";
+        } else if(edmBox.isSelected()){
+            genre = "EDM";
+        }
 
         // Check if any field is empty
         if (songName.isEmpty() || artistName.isEmpty() || duration.isEmpty() || genre.isEmpty()) {
@@ -237,6 +256,18 @@ public class musicappGUI extends javax.swing.JFrame {
         hipTP.setText(hipHopPlaylist.displayStack());
         edmTP.setText(edmPlaylist.displayStack());
     }//GEN-LAST:event_showSongBtnActionPerformed
+
+    private void edmBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edmBoxActionPerformed
+        // TODO add your handling code here:
+        // If emd box is clicked, unclick other box
+        hipBox.setSelected(false);
+    }//GEN-LAST:event_edmBoxActionPerformed
+
+    private void hipBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hipBoxActionPerformed
+        // TODO add your handling code here:
+        // If hip hop box is clicked, unclick other box
+        edmBox.setSelected(false);
+    }//GEN-LAST:event_hipBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,9 +310,10 @@ public class musicappGUI extends javax.swing.JFrame {
     private javax.swing.JTextField artistTF;
     private javax.swing.JButton delBtn;
     private javax.swing.JTextField durTF;
+    private javax.swing.JCheckBox edmBox;
     private javax.swing.JTextPane edmTP;
     private javax.swing.JLabel errLbl;
-    private javax.swing.JTextField genreTF;
+    private javax.swing.JCheckBox hipBox;
     private javax.swing.JTextPane hipTP;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
