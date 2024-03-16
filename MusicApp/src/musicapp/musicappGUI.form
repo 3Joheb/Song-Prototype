@@ -34,20 +34,21 @@
                                   <Component id="artistNameLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="songTF" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="songLbl" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="artistTF" alignment="0" max="32767" attributes="0"/>
                                   <Component id="durTF" alignment="0" max="32767" attributes="0"/>
                                   <Component id="genreTF" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
+                                  <Component id="songTF" alignment="0" min="-2" pref="141" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="delBtn" max="32767" attributes="0"/>
                                   <Component id="addBtn" alignment="0" max="32767" attributes="0"/>
                                   <Component id="moveBtn" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="showSongBtn" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -79,8 +80,8 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="songLbl" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="songTF" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -99,10 +100,11 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="genreTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="showSongBtn" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="errLbl" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
+              <EmptySpace pref="44" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
@@ -122,9 +124,9 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="songTF">
     </Component>
-    <Component class="javax.swing.JLabel" name="songTF">
+    <Component class="javax.swing.JLabel" name="songLbl">
       <Properties>
         <Property name="text" type="java.lang.String" value="Song Name:"/>
       </Properties>
@@ -138,7 +140,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Duration:"/>
+        <Property name="text" type="java.lang.String" value="Duration (secs):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
@@ -228,6 +230,11 @@
     <Component class="javax.swing.JButton" name="moveBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Move Song"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="showSongBtn">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Show Songs"/>
       </Properties>
     </Component>
   </SubComponents>
