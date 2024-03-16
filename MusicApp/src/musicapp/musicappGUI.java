@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
-
 package musicapp;
+
 /**
  *
  * @author zoheb
@@ -111,6 +110,11 @@ public class musicappGUI extends javax.swing.JFrame {
         moveBtn.setText("Move Song");
 
         showSongBtn.setText("Show Songs");
+        showSongBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showSongBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -218,7 +222,7 @@ public class musicappGUI extends javax.swing.JFrame {
             // Display error message
             errLbl.setForeground(Color.RED); // Change color to red
         } else {
-            errLbl.setForeground(new Color(242,242,242)); // Window color to hide label
+            errLbl.setForeground(new Color(242, 242, 242)); // Window color to hide label
             // Add song logic here
             Song song = new Song(songName, artistName, Integer.parseInt(duration), genre);
             likedSongsPlaylist.push(song);
@@ -226,7 +230,14 @@ public class musicappGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addBtnActionPerformed
 
-    
+    private void showSongBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSongBtnActionPerformed
+        // TODO add your handling code here:
+        // Use display stack method to display song name with artist
+        likedTP.setText(likedSongsPlaylist.displayStack());
+        hipTP.setText(hipHopPlaylist.displayStack());
+        edmTP.setText(edmPlaylist.displayStack());
+    }//GEN-LAST:event_showSongBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
