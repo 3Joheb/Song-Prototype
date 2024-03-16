@@ -100,6 +100,11 @@ public class musicappGUI extends javax.swing.JFrame {
         });
 
         delBtn.setText("Delete Song");
+        delBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delBtnActionPerformed(evt);
+            }
+        });
 
         moveBtn.setText("Move Song");
         moveBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -255,10 +260,8 @@ public class musicappGUI extends javax.swing.JFrame {
 
     private void showSongBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showSongBtnActionPerformed
         // TODO add your handling code here:
-        // Use display stack method to display song name with artist
-        likedTP.setText(likedSongsPlaylist.displayStack());
-        hipTP.setText(hipHopPlaylist.displayStack());
-        edmTP.setText(edmPlaylist.displayStack());
+
+        displayPlaylists();
     }//GEN-LAST:event_showSongBtnActionPerformed
 
     private void edmBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edmBoxActionPerformed
@@ -286,15 +289,32 @@ public class musicappGUI extends javax.swing.JFrame {
             // Determine which playlist to push the song onto based on its genre
             if (genre.equals("Hip Hop")) {
                 hipHopPlaylist.push(songToMove);
-                likedTP.setText("");
-                hipTP.setText("Moved" + songToMove.getName());
+                displayPlaylists();
             } else if (genre.equals("EDM")) {
                 edmPlaylist.push(songToMove);
-                likedTP.setText("");
-                edmTP.setText("Moved" + songToMove.getName());
+                displayPlaylists();
             }
         }
     }//GEN-LAST:event_moveBtnActionPerformed
+
+    private void delBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delBtnActionPerformed
+        // TODO add your handling code here:
+        // Check if the liked playlist is not empty
+        if (!likedSongsPlaylist.isEmpty()) {
+            // Pop the last song from the liked playlist
+            likedSongsPlaylist.pop();
+
+            // Update the display of the liked playlist
+            displayPlaylists();
+        }
+    }//GEN-LAST:event_delBtnActionPerformed
+
+    private void displayPlaylists() {
+        // Use display stack method to display song name with artist
+        likedTP.setText(likedSongsPlaylist.displayStack());
+        hipTP.setText(hipHopPlaylist.displayStack());
+        edmTP.setText(edmPlaylist.displayStack());
+    }
 
     /**
      * @param args the command line arguments
