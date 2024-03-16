@@ -18,5 +18,4 @@ public class musicapp {
         musicappGUI gui = new musicappGUI();
         gui.setVisible(true);
     }
-    
 }
