@@ -15,6 +15,8 @@ public class musicapp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        musicappGUI gui = new musicappGUI();
+        gui.setVisible(true);
     }
     
 }
